@@ -1,19 +1,32 @@
-#include<stdio.h>
+#include <stdio.h>
 int main()
 {
-     int n;
-    scanf("%d",&n);
+    int n;
+    scanf("%d", &n);
     int a[n];
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
-        scanf("%d",&a[i]);
+        scanf("%d", &a[i]);
     }
     // ascending
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] > a[j])
+            {
+                int tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
+            }
+        }
+    }
+    // descending
     // for(int i=0;i<n-1;i++)
     // {
     //     for(int j=i+1;j<n;j++)
     //     {
-    //         if(a[i]>a[j])
+    //         if(a[i]<a[j])
     //         {
     //             int tmp=a[i];
     //             a[i]=a[j];
@@ -21,22 +34,9 @@ int main()
     //         }
     //     }
     // }
-     // descending
-    for(int i=0;i<n-1;i++)
+    for (int i = 0; i < n; i++)
     {
-        for(int j=i+1;j<n;j++)
-        {
-            if(a[i]<a[j])
-            {
-                int tmp=a[i];
-                a[i]=a[j];
-                a[j]=tmp;
-            }
-        }
-    }
-    for(int i=0;i<n;i++)
-    {
-        printf("%d ",a[i]);
+        printf("%d ", a[i]);
     }
     return 0;
 }
